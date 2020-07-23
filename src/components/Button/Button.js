@@ -5,8 +5,9 @@ const Button = ({ color, size, onClick, disabled, children }) => {
   const styles = {
     color,
     fontSize: Button.sizes[size],
-    border: `1px solid`,
+    border: "1px solid",
     borderRadius: "3px",
+    padding: "5px",
   };
   return (
     <button
