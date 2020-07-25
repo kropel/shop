@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import bag from "reducers/bag";
-import products from "reducers/product";
+import bagObj from "reducers/bag";
+import productsObj from "reducers/product";
 
 export const rootReducer = combineReducers({
-  bag,
-  products,
+  bagObj,
+  productsObj,
 });

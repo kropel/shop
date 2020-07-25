@@ -5,19 +5,19 @@ import styles from "./Filters.module.css";
 const Filters = ({
   manufacturers,
   values: { text, manufacture },
-  onChange
+  onChange,
 }) => {
-  const handleChange = data => {
+  const handleChange = (data) => {
     onChange({
-      text: data.text || text,
-      manufacture: data.manufacture || manufacture
+      text: data.text ?? text, // stosowac ?? zamiast ||
+      manufacture: data.manufacture ?? manufacture, // stosowac ?? zamiast ||
     });
   };
 
   const onClear = () => {
     onChange({
       text: "",
-      manufacture: "All"
+      manufacture: "All",
     });
   };
 
@@ -34,13 +34,13 @@ const Filters = ({
           type="text"
           placeholder="search..."
           value={text}
-          onChange={e => handleChange({ text: e.target.value })}
+          onChange={(e) => handleChange({ text: e.target.value })}
         />
       </div>
 
       <h4>Manufacturer</h4>
       <div>
-        {manufacturers.map(item => (
+        {manufacturers.map((item) => (
           <div key={item}>
             <input
               type="radio"
@@ -48,7 +48,7 @@ const Filters = ({
               id={item}
               value={item}
               checked={item === manufacture}
-              onChange={e => handleChange({ manufacture: e.target.value })}
+              onChange={(e) => handleChange({ manufacture: e.target.value })}
             />
             <label htmlFor={item}>{item}</label>
           </div>

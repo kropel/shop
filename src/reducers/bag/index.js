@@ -1,8 +1,7 @@
 import { ACTION_TYPES, removeProduct } from "actions/bag";
 
-let amount;
-
 export default (state = {}, action) => {
+  let amount = 0;
   switch (action.type) {
     case ACTION_TYPES.ADD_PRODUCT:
       const { product } = action;

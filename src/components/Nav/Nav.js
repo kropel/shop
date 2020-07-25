@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./Nav.module.css";
 
+import Bag from "components/Bag/Bag";
 import Container from "components/Container/Container";
 
 const Nav = () => (
@@ -19,6 +20,7 @@ const Nav = () => (
           <Link to="/about">About</Link>
         </li>
       </ul>
+      <Bag className={styles.Bag} />
     </Container>
   </nav>
 );

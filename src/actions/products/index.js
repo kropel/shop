@@ -1,5 +1,3 @@
-import product from "../../reducers/product";
-
 export const ACTION_TYPES = {
   FETCH_PRODUCTS: "FETCH_PRODUCTS",
   FETCH_PRODUCTS_SUCCESS: "FETCH_PRODUCTS_SUCCESS",
@@ -16,11 +14,10 @@ export const fetchProductsError = () => ({
 });
 
 export const fetchData = () => async (dispatch) => {
-  dispatch(fetchProducts());
   try {
+    dispatch(fetchProducts());
     const response = await fetch("https://d24huwa7xw9s1p.cloudfront.net");
-    const data = await response.json();
-    const products = data.results;
+    const products = await response.json();
 
     dispatch(fetchProductsSuccess(products));
   } catch (error) {

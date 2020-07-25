@@ -20,7 +20,7 @@ export default (state = initValue, action) => {
         ...state,
         isLoading: false,
         isError: false,
-        product: action.products,
+        products: action.products,
       };
     case ACTION_TYPES.FETCH_PRODUCTS_ERROR:
       return { ...state, ...errorValue };
