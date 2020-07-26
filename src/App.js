@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Provider } from "react-redux";
 
 import Nav from "components/Nav/Nav";
 import Container from "components/Container/Container";
@@ -11,14 +10,17 @@ import CatalogPage from "pages/Catalog/CatalogPage";
 import HomePage from "pages/Home/HomePage";
 import { store } from "store";
 import { fetchData } from "actions/products";
+import ShoppingBag from "./components/ShoppingBag/ShoppingBag";
+import { useSelector } from "react-redux";
 
 const App = () => {
   useEffect(() => {
     store.dispatch(fetchData());
   }, []);
+  const showShoppingBag = useSelector((store) => store.showShoppingBag);
 
   return (
-    <Provider store={store}>
+    <>
       <Router>
         <Nav />
         <Container>
@@ -28,7 +30,8 @@ const App = () => {
         </Container>
         <Footer />
       </Router>
-    </Provider>
+      {showShoppingBag && <ShoppingBag />}
+    </>
   );
 };
 

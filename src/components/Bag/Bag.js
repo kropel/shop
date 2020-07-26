@@ -1,10 +1,13 @@
 import React, { useMemo } from "react";
 import { connect } from "react-redux";
 import style from "./Bag.module.css";
+import { useDispatch } from "react-redux";
+import { showBag } from "actions/showShoppingBad";
 
 import bagPng from "./assets/bag.png";
 
 const Bag = ({ bag = {} }) => {
+  const dispatch = useDispatch();
   const numberItems = useMemo(
     () =>
       Object.keys(bag).reduce((sum, current) => {
@@ -15,11 +18,11 @@ const Bag = ({ bag = {} }) => {
   return (
     <span
       onClick={(e) => {
-        console.log(e.target);
+        dispatch(showBag());
       }}
       className={style.Bag}
     >
-      <img src={bagPng} alt="Your bag" />
+      <img src={bagPng} alt="Your bag" className={style.BagImg} />
       {numberItems !== 0 && <span className={style.Badge}>{numberItems}</span>}
     </span>
   );

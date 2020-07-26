@@ -23,5 +23,8 @@
   display: block;
   text-decoration: none;
 }
-.Bag {
+.NavBag {
+  position: absolute;
+  left: 1350px;
+  top: 2px;
 }

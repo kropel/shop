@@ -16,8 +16,12 @@ export const removeProduct = (id) => ({
 });
 export const incrementAmount = (id) => ({
   type: ACTION_TYPES.INCREMENT_AMOUNT,
+  id,
 });
-export const decrentAmount = (id) => ({ type: ACTION_TYPES.DECREMENT_AMOUNT });
+export const decrentAmount = (id) => ({
+  type: ACTION_TYPES.DECREMENT_AMOUNT,
+  id,
+});
 export const setAmount = (id, amount) => ({
   type: ACTION_TYPES.SET_AMOUNT,
   id,

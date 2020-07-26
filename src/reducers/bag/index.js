@@ -1,4 +1,4 @@
-import { ACTION_TYPES, removeProduct } from "actions/bag";
+import { ACTION_TYPES } from "actions/bag";
 
 export default (state = {}, action) => {
   let amount = 0;
@@ -7,7 +7,10 @@ export default (state = {}, action) => {
       const { product } = action;
       if (state.hasOwnProperty(product.id)) {
         amount = state[product.id].amount + 1;
-        return { ...state, [product.id]: { amount } };
+        return {
+          ...state,
+          [product.id]: { product: state[product.id].product, amount },
+        };
       } else {
         return { ...state, [product.id]: { product, amount: 1 } };
       }
@@ -20,23 +23,38 @@ export default (state = {}, action) => {
       ({
         [action.id]: { amount },
       } = state);
-      return { ...state, [action.id]: { amount: amount + 1 } };
+      return {
+        ...state,
+        [action.id]: { product: state[action.id].product, amount: amount + 1 },
+      };
 
     case ACTION_TYPES.DECREMENT_AMOUNT:
       ({
         [action.id]: { amount },
       } = state);
-      if (amount > 1) {
-        return { ...state, [action.id]: { amount: amount - 1 } };
+      if (amount > 0) {
+        return {
+          ...state,
+          [action.id]: {
+            product: state[action.id].product,
+            amount: amount - 1,
+          },
+        };
       } else {
         return state;
       }
     case ACTION_TYPES.SET_AMOUNT:
       ({ amount } = action);
       if (amount > 0) {
-        return { ...state, [action.id]: { amount } };
+        return {
+          ...state,
+          [action.id]: { product: state[action.id].product, amount },
+        };
       } else {
-        return { ...state, [action.id]: { amount: 0 } };
+        return {
+          ...state,
+          [action.id]: { product: state[action.id].product, amount: 0 },
+        };
       }
     default:
       return state;

@@ -1,0 +1,24 @@
+.Delete {
+  background-color: #6d030c;
+  padding: 4px 11px 2px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+li > * {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 17px;
+}
+.Button {
+  background-color: #1d2641;
+  padding: 4px 11px 2px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+.Amount > * {
+  margin: 5px;
+}

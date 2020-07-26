@@ -1,0 +1,44 @@
+.Bag {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.Wraper {
+  padding: 20px 50px 20px 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 775px;
+}
+
+.Close {
+  position: absolute;
+  background-color: #0b102b;
+  padding: 4px 11px 2px;
+  color: white;
+  border-radius: 50%;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.Sum {
+  display: flex;
+  justify-content: flex-end;
+}
+.Sum > p {
+  font-size: 20px;
+  font-weight: bold;
+}
